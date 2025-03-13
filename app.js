@@ -1,13 +1,12 @@
 // El principal objetivo de este desafío es fortalecer tus habilidades en lógica de programación. Aquí deberás desarrollar la lógica para resolver el problema.
 const campoDeEntrada = document.getElementById('amigo');
-const botonAdicionar = document.getElementById('addButton');
-const botonSortear = document.getElementById('drawButton');
+const botonAdicionar = document.querySelector('.button-add');
+const botonSortear = document.querySelector('.button-draw');
 const listaDeAmigos = document.getElementById('listaAmigos');
 const divResultado = document.getElementById('resultado');
-
 let amigos = [];
 
-botonAdicionar.addEventListener('click', function () {
+function agregarAmigo() {
     const nombreAmigo = campoDeEntrada.value.trim();
     if (nombreAmigo === "") {
         alert("Por favor, inserte un nombre.");
@@ -16,16 +15,16 @@ botonAdicionar.addEventListener('click', function () {
         campoDeEntrada.value = "";
         actualizarListaDeAmigos();
     }
-});
+}
 function actualizarListaDeAmigos() {
     listaDeAmigos.innerHTML = "";
-    for (let i = 0; i < amigos.length; i++) {
+    amigos.forEach(amigo => {
         const li = document.createElement('li');
-        li.textContent = amigos[i];
+        li.textContent = amigo;
         listaDeAmigos.appendChild(li);
-    }
+    });
 }
-botonSortear.addEventListener('click', function () {
+function sortearAmigo() {
     if (amigos.length === 0) {
         alert("No hay amigos en la lista. Por favor, agrega al menos un nombre.");
     } else {
@@ -33,4 +32,4 @@ botonSortear.addEventListener('click', function () {
         const amigoSecreto = amigos[indiceAleatorio];
         divResultado.innerHTML = `El amigo secreto es: ${amigoSecreto}`;
     }
-});
+}
