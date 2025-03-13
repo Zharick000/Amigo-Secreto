@@ -17,7 +17,6 @@ botonAdicionar.addEventListener('click', function () {
         actualizarListaDeAmigos();
     }
 });
-
 function actualizarListaDeAmigos() {
     listaDeAmigos.innerHTML = "";
     for (let i = 0; i < amigos.length; i++) {
@@ -35,4 +34,3 @@ botonSortear.addEventListener('click', function () {
         divResultado.innerHTML = `El amigo secreto es: ${amigoSecreto}`;
     }
 });
-
